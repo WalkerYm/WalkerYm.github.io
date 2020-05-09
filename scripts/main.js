@@ -14,11 +14,12 @@ myImage.onclick = function() {
 let myButton = document.querySelector('button');
 
 function setUserName() {
-    if (!localStorage.getItem('name')) {
+    let myName = prompt('请输入你的名字。');
+    if (!myName || myName === null) {
         setUserName();
     } else {
-        let storedName = localStorage.getItem('name');
-        myHeading.textContent = '一起 Hellow World!，' + storedName;
+        localStorage.setItem('name', myName);
+        myHeading.innerHTML = '一起 Hellow World 吧，' + myName;
     }
 }
 
